@@ -1,0 +1,192 @@
+1.
+[root@inux root]# useradd fangyuan
+2.
+[root@inux root]# passwd fangyuan
+Changing password for user fangyuan.
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+3.
+[fangyuan@inux root]$ su -
+Password:
+[root@inux root]# passwd -d fangyuan
+Removing password for user fangyuan.
+passwd: Success
+4.
+Red Hat Linux release 9 (Shrike)
+Kernel 2.4.20-8 on an i686
+login: fangyuan
+Password:
+5.
+[fangyuan@inux fangyuan]$ echo I am fangyuan,my student ID number is 184805006.
+I am fangyuan,my student ID number is 184805006.
+6.
+[fangyuan@inux fangyuan]$ who
+fangyuan pts/0        Nov08 14:41 (192.168.1.1)
+7.
+[fangyuan@inux fangyuan]$ date
+五 11月 08 14:45:34 CST 2019
+8.
+[fangyuan@inux fangyuan]$clear
+9.
+[fangyuan@inux fangyuan]$ more /etc/termcap
+######## TERMINAL TYPE DESCRIPTIONS SOURCE FILE
+#
+# This version of terminfo.src is distributed with ncurses.
+# Report bugs to
+#       bug-ncurses@gnu.org
+#
+#       Version 10.2.1
+#       $Date: 2001/05/19 20:56:45 $
+#       terminfo syntax
+#
+#       Eric S. Raymond         (current maintainer)
+#       John Kunze, Berkeley
+#       Craig Leres, Berkeley
+#
+# Please e-mail changes to terminfo@thyrsus.com; the old termcap@berkeley.edu
+# address is no longer valid.  The latest version can always be found at
+# <http://www.tuxedo.org/terminfo>.
+#
+# PURPOSE OF THIS FILE:
+#
+# This file describes the capabilities of various character-cell terminals,
+# as needed by software such as screen-oriented editors.
+#
+--More--(0%)
+10.
+[fangyuan@inux fangyuan]$ head /etc/termcap
+######## TERMINAL TYPE DESCRIPTIONS SOURCE FILE
+#
+# This version of terminfo.src is distributed with ncurses.
+# Report bugs to
+#       bug-ncurses@gnu.org
+#
+#       Version 10.2.1
+#       $Date: 2001/05/19 20:56:45 $
+#       terminfo syntax
+#
+[fangyuan@inux fangyuan]$ tail /etc/termcap
+# The following sets edit modes for GNU EMACS.
+# Local Variables:
+# fill-prefix:"\t"
+# fill-column:75
+# comment-column:0
+# comment-start-skip:"^#+"
+# comment-start:"# "
+# compile-command:"tic -c terminfo.master"
+# End:
+######## SHANTIH!  SHANTIH!  SHANTIH!
+11.
+[fangyuan@inux tmp]$ cd ~
+[fangyuan@inux fangyuan]$ touch a1 a2 a3
+12.
+[fangyuan@inux fangyuan]$ cd ~
+[fangyuan@inux fangyuan]$ mkdir dir1 dir2
+[fangyuan@inux fangyuan]$ cd /tmp
+[fangyuan@inux tmp]$ mkdir dir1 dir2
+13.
+[fangyuan@inux fangyuan]$ cp a1 a2 a3 ~/dir1
+[fangyuan@inux fangyuan]$ cp a1 a2 a3 /tmp/dir1
+14.
+[fangyuan@inux fangyuan]$ ls -l
+总用量 8
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:01 a1
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:06 a2
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:06 a3
+drwxrwxr-x    2 fangyuan fangyuan     4096 11月 08 15:09 dir1
+drwxrwxr-x    2 fangyuan fangyuan     4096 11月 08 14:57 dir2
+[fangyuan@inux fangyuan]$ ls -l /tmp/dir1
+总用量 0
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:09 a1
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:09 a2
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:09 a3
+15.
+[fangyuan@inux fangyuan]$ cd ~/dir1
+[fangyuan@inux dir1]$ mv a1 a2 a3 ~/dir2
+[fangyuan@inux dir1]$ ls -l ~/dir2
+总用量 0
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:09 a1
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:09 a2
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:09 a3
+16.
+[fangyuan@inux dir1]$ cd /tmp/dir1
+[fangyuan@inux dir1]$ rm a1
+17.
+[fangyuan@inux dir1]$ cd ..
+[fangyuan@inux tmp]$ rm -rf dir1 dir2
+18.
+[fangyuan@inux tmp]$ cd ~
+[fangyuan@inux fangyuan]$ pwd
+/home/fangyuan
+19.
+[fangyuan@inux fangyuan]$ cat > file1
+a1a1a
+a2a2b
+a3a3c
+[fangyuan@inux fangyuan]$ cat > file2
+a1a1a
+ddddddd
+eeeeeee
+[fangyuan@inux fangyuan]$ ln -s file1 nb1
+[fangyuan@inux fangyuan]$ ln file1 nb2
+20.
+[fangyuan@inux fangyuan]$ comm file1 file2
+                a1a1a
+a2a2b
+a3a3c
+        ddddddd
+        eeeeeee
+[fangyuan@inux fangyuan]$ diff file1 file2
+2,3c2,3
+< a2a2b
+< a3a3c
+---
+> ddddddd
+> eeeeeee
+21.
+[fangyuan@inux fangyuan]$ grep -i "a" file1
+a1a1a
+22.
+[fangyuan@inux fangyuan]$ ls | grep ^f
+file1
+file2
+23.
+[fangyuan@inux fangyuan]$ chmod u+x file1
+[fangyuan@inux fangyuan]$ chmod g+w file1
+[fangyuan@inux fangyuan]$ chmod o+x file1
+[fangyuan@inux fangyuan]$ ls -l
+总用量 20
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:01 a1
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:06 a2
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:06 a3
+drwxrwxr-x    2 fangyuan fangyuan     4096 11月 08 15:11 dir1
+drwxrwxr-x    2 fangyuan fangyuan     4096 11月 08 15:11 dir2
+-rwxrw-r-x    2 fangyuan fangyuan       24 11月 08 15:16 file1
+-rw-rw-r--    1 fangyuan fangyuan       24 11月 08 15:16 file2
+lrwxrwxrwx    1 fangyuan fangyuan        2 11月 08 15:19 nb -> nb
+lrwxrwxrwx    1 fangyuan fangyuan        5 11月 08 15:20 nb1 -> file1
+-rwxrw-r-x    2 fangyuan fangyuan       24 11月 08 15:16 nb2
+[fangyuan@inux fangyuan]$ chmod u-x file1
+[fangyuan@inux fangyuan]$ chmod g-w file1
+[fangyuan@inux fangyuan]$ chmod o-x file1
+[fangyuan@inux fangyuan]$ chmod 764 file1
+[fangyuan@inux fangyuan]$ ls -l
+总用量 20
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:01 a1
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:06 a2
+-rw-rw-r--    1 fangyuan fangyuan        0 11月 08 15:06 a3
+drwxrwxr-x    2 fangyuan fangyuan     4096 11月 08 15:11 dir1
+drwxrwxr-x    2 fangyuan fangyuan     4096 11月 08 15:11 dir2
+-rwxrw-r--    2 fangyuan fangyuan       24 11月 08 15:16 file1
+-rw-rw-r--    1 fangyuan fangyuan       24 11月 08 15:16 file2
+lrwxrwxrwx    1 fangyuan fangyuan        2 11月 08 15:19 nb -> nb
+lrwxrwxrwx    1 fangyuan fangyuan        5 11月 08 15:20 nb1 -> file1
+-rwxrw-r--    2 fangyuan fangyuan       24 11月 08 15:16 nb2
+24.
+[fangyuan@inux fangyuan]$ su -
+Password:
+[root@inux root]# cd /home/fangyuan
+[root@inux fangyuan]# chgrp -R user1 file1 file2
+25.
+[root@inux fangyuan]# poweroff
